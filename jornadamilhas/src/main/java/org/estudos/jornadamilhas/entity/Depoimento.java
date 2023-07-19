@@ -14,7 +14,7 @@ import jakarta.persistence.Lob;
 public class Depoimento extends PanacheEntityBase {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomePessoa;
     private String depoimento;
@@ -24,6 +24,7 @@ public class Depoimento extends PanacheEntityBase {
     @Column(nullable = true)
     private byte[] foto;
    
+
     public Long getId() {
         return this.id;
     }
@@ -55,6 +56,6 @@ public class Depoimento extends PanacheEntityBase {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
+  
     
 }

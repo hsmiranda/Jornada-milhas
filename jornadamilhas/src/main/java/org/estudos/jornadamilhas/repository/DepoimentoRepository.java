@@ -10,11 +10,16 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class DepoimentoRepository implements PanacheRepository<Depoimento>{
 
-    @Override
+    /**
+     * Metodo responsavel por listar todos os depoimentos.
+     * 
+     * @return lista com todos os depoimentos.
+     */
     public List<Depoimento> listAll() {
-        return PanacheRepository.super.listAll();
+        return Depoimento.listAll();
     }
     
+
 
 
 }
