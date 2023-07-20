@@ -19,8 +19,8 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
      * 
      * @return lista com todos os depoimentos.
      */
-    public List<Depoimento> listAll() {
-        return Depoimento.listAll();
+    public List<Depoimento> pesquisaTodos() {
+        return listAll();
     }
     
     /**
@@ -28,7 +28,7 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
      * @return
      */
     public List<Depoimento> listByNome(String nome) {
-        return Depoimento.find("nomePessoa = :nome", Parameters.with("nomePessoa", nome)).list();
+        return find("nomePessoa = :nome", Parameters.with("nomePessoa", nome)).list();
     }
 
     /**
@@ -37,7 +37,7 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
      */
     @Transactional
     public Depoimento cadastrar(Depoimento d) {
-        Depoimento.persist(d);
+        persist(d);
         return d;
     }
 
@@ -49,13 +49,13 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
     @Transactional
     public Depoimento atualizar(Long id, Depoimento d) {
 
-        Depoimento depoimentoEntity = Depoimento.findById(id);
+        Depoimento depoimentoEntity = findById(id);
 
         if(depoimentoEntity == null) {
             throw new WebApplicationException("Depoimento nao encontrado", Response.Status.NOT_FOUND);
         }
 
-        depoimentoEntity.setDepoimento(d.getDepoimento());
+        depoimentoEntity.setTextoDepoimento(d.getTextoDepoimento());
         depoimentoEntity.setFoto(d.getFoto());
         depoimentoEntity.setNomePessoa(d.getNomePessoa());
 
@@ -67,13 +67,13 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
      */
     @Transactional
     public void apagar(Long id) {
-        Depoimento depoimentoEntity = Depoimento.findById(id);
+        Depoimento depoimentoEntity = findById(id);
 
         if(depoimentoEntity == null) {
             throw new WebApplicationException("Depoimento com o"+ id+ "nao encontrado", Response.Status.NOT_FOUND);
         }
 
-        Depoimento.deleteById(depoimentoEntity.getId());
+        deleteById(depoimentoEntity.getId());
     }
 
 
