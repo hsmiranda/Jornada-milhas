@@ -18,7 +18,7 @@ import jakarta.ws.rs.core.Response;
 
 @Path("/depoimentos/v2")
 @Produces(MediaType.APPLICATION_JSON)
-public class DepoimentoV2Resource {
+public class DepoimentoResource {
 
     @Inject
     private DepoimentoRepository depoimentoRepository;
