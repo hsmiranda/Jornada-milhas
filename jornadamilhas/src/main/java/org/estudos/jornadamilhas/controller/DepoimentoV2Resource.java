@@ -1,4 +1,4 @@
-package org.estudos.jornadamilhas.resources;
+package org.estudos.jornadamilhas.controller;
 
 import java.util.List;
 
@@ -23,7 +23,6 @@ public class DepoimentoV2Resource {
     @Inject
     private DepoimentoRepository depoimentoRepository;
 
-
     @GET
     public List<Depoimento> listAll(){
         return depoimentoRepository.listAll();
@@ -34,7 +33,6 @@ public class DepoimentoV2Resource {
         depoimentoRepository.cadastrar(depoimento);
         return Response.ok(depoimento).status(Response.Status.CREATED).build();
     }
-
 
     @PUT
     @Path("{id}")
@@ -48,5 +46,17 @@ public class DepoimentoV2Resource {
     public Response apagar(@PathParam("id") Long id){
         depoimentoRepository.apagar(id);
         return Response.status(Response.Status.NO_CONTENT).build();
+    }
+
+    @GET
+    @Path("total")
+    public Long count(){
+        return depoimentoRepository.count();
+    }
+
+    @GET
+    @Path("{id}")
+    public Depoimento pesquisar(@PathParam("id") Long id) {
+        return depoimentoRepository.findById(id);
     }
 }

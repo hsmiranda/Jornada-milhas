@@ -8,6 +8,7 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
 
@@ -74,6 +75,24 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
         }
 
         deleteById(depoimentoEntity.getId());
+    }
+
+    /**
+     * Pesquisa o depoimento por um ID
+     * 
+     * @param idLong
+     * 
+     * @return depoimento com o ID especifico.
+     */
+    public Depoimento pesquisarPorId(Long idLong){
+
+        Depoimento depoimentoEntity = findById(idLong);
+
+        if(depoimentoEntity == null){
+            throw new NotFoundException();
+        }
+
+        return depoimentoEntity;
     }
 
 
