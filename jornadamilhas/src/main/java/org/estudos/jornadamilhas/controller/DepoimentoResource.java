@@ -16,7 +16,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("/depoimentos/v1")
+@Path("/depoimento")
 @Produces(MediaType.APPLICATION_JSON)
 public class DepoimentoResource {
 

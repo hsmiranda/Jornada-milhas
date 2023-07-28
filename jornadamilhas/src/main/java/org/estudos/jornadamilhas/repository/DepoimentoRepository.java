@@ -12,6 +12,10 @@ import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * Classe responsavel por implementa o acesso ao banco de dados.
+ * 
+ */
 @ApplicationScoped
 public class DepoimentoRepository implements PanacheRepository<Depoimento>{
 
@@ -64,6 +68,8 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
     }
 
     /**
+     * Apaga um depoimento fiscamente do banco.
+     * 
      * @param id
      */
     @Transactional
@@ -88,6 +94,9 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
 
         Depoimento depoimentoEntity = findById(idLong);
 
+        /**
+         * Verifica se o depoimento existe.
+         */
         if(depoimentoEntity == null){
             throw new NotFoundException();
         }

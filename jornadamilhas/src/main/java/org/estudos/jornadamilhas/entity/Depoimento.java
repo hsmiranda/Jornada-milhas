@@ -56,6 +56,16 @@ public class Depoimento {
         this.foto = foto;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", nomePessoa='" + getNomePessoa() + "'" +
+            ", textoDepoimento='" + getTextoDepoimento() + "'" +
+            ", foto='" + getFoto() + "'" +
+            "}";
+    }
+
   
     
 }
