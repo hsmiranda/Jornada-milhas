@@ -1,9 +1,12 @@
--- This file allow to write SQL commands that will be emitted in test and dev.
--- The commands are commented as their support depends of the database
--- insert into myentity (id, field) values(1, 'field-1');
--- insert into myentity (id, field) values(2, 'field-2');
--- insert into myentity (id, field) values(3, 'field-3');
--- alter sequence myentity_seq restart with 4;
-INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Joao', 'Excelente viagem gostei muito');
-INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Maria', 'Pior experiencia da minha vida');
-INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Pedro', 'Não estava espertando, mais foi bom');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Joao', 'Depoimento 1');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Maria', 'Depoimento 2');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Pedro', 'Depoimento 3');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Luis', 'Depoimento 4');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Jorge', 'Depoimento 5');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Lucas', 'Depoimento 6');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Ana', 'Depoimento 7');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Lucia', 'Depoimento 8');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Vanessa', 'Depoimento 9');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Lara', 'Depoimento 10');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Paulo', 'Depoimento 11');
+INSERT INTO public.depoimento (id, textoDepoimento, nomepessoa) VALUES(nextval('depoimento_seq'),'Fernando', 'Depoimento 12');

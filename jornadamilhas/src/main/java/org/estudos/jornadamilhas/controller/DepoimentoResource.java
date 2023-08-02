@@ -2,6 +2,7 @@ package org.estudos.jornadamilhas.controller;
 
 import java.util.List;
 
+import org.estudos.jornadamilhas.bo.DepoimentoBO;
 import org.estudos.jornadamilhas.entity.Depoimento;
 import org.estudos.jornadamilhas.repository.DepoimentoRepository;
 
@@ -58,5 +59,12 @@ public class DepoimentoResource {
     @Path("{id}")
     public Depoimento pesquisar(@PathParam("id") Long id) {
         return depoimentoRepository.findById(id);
+    }
+
+    @GET
+    @Path("depoimentos-home")
+    public List<Depoimento> depoimentoHome(){
+        DepoimentoBO depoimentoBO = new DepoimentoBO();
+        return depoimentoBO.getDepoimentosHome();
     }
 }
