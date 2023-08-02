@@ -65,7 +65,4 @@ public class Depoimento {
             ", foto='" + getFoto() + "'" +
             "}";
     }
-
-  
-    
 }
