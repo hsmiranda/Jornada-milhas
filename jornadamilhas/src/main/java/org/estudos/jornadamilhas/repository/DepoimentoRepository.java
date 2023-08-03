@@ -29,6 +29,8 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
     }
     
     /**
+     * Metodo responsavel por pesquisar todos por nome.
+     * 
      * @param nome
      * @return
      */
@@ -37,6 +39,8 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
     }
 
     /**
+     * Metodo que realiza o cadastro do depoimento.
+     * 
      * @param d
      * @return
      */
@@ -47,6 +51,8 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
     }
 
     /**
+     * Metodo que realiza a atualizacao do Depoimento.
+     * 
      * @param id
      * @param d
      * @return
@@ -103,6 +109,5 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
 
         return depoimentoEntity;
     }
-
 
 }
