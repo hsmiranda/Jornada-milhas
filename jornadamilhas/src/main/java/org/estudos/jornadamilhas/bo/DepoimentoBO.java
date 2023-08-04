@@ -13,7 +13,6 @@ public class DepoimentoBO {
 	public List<Depoimento> getDepoimentosHome() {
 
 		DepoimentoRepository depoimentoRepository = new DepoimentoRepository();
-
 		List<Depoimento> depoimentosAleatorios = new ArrayList<>();
 		
 		for(int i = 0; 3 > i; i++){

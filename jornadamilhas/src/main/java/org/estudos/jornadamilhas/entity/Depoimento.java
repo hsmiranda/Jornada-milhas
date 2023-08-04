@@ -60,6 +60,7 @@ public class Depoimento {
         this.foto = foto;
     }
 
+
     @Override
     public String toString() {
         return "{" +
@@ -69,4 +70,7 @@ public class Depoimento {
             ", foto='" + getFoto() + "'" +
             "}";
     }
+
+
+    
 }
