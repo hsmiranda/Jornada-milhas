@@ -16,7 +16,7 @@ public class DepoimentoBO {
 
 		List<Depoimento> depoimentosAleatorios = new ArrayList<>();
 		
-		for(int i=0; i<3; i++){
+		for(int i = 0; 3 > i; i++){
 			depoimentosAleatorios.add(DepoimentosUtils.getRandomDepoimento(depoimentoRepository.listAll()));
 		}
 
