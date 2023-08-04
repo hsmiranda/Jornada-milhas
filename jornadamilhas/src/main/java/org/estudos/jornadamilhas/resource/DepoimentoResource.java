@@ -1,4 +1,4 @@
-package org.estudos.jornadamilhas.controller;
+package org.estudos.jornadamilhas.resource;
 
 import java.util.List;
 
