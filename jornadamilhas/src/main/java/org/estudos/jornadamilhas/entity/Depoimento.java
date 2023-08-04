@@ -9,18 +9,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 
-@Entity
+@Entity(name = "tbl_depoimento")
 public class Depoimento {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "txt_nome")
     private String nomePessoa;
+
+    @Column(name = "txt_depoimento")
     private String textoDepoimento;
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    @Column(nullable = true)
+    @Column(nullable = true, name = "blob_foto")
     private byte[] foto;
    
 
