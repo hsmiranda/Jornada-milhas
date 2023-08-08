@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity(name = "tbl_destinos")
 @Table(name = "tbl_destinos")
-public class Destinos {
+public class Destino {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
