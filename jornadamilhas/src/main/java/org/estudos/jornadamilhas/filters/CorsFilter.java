@@ -1,9 +1,5 @@
 package org.estudos.jornadamilhas.filters;
 
-import java.io.IOException;
-
-import jakarta.ws.rs.container.ContainerRequestContext;
-import jakarta.ws.rs.container.ContainerResponseContext;
 
 public class CorsFilter {
 

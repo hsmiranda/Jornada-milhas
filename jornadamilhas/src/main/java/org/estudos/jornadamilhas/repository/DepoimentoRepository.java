@@ -16,11 +16,12 @@ import jakarta.ws.rs.core.Response;
 @ApplicationScoped
 public class DepoimentoRepository implements PanacheRepository<Depoimento>{
 
-
+    @Transactional
     public List<Depoimento> pesquisaTodos() {
         return listAll();
     }
     
+    @Transactional
     public List<Depoimento> listByNome(String nome) {
         return find("nomePessoa = :nome", Parameters.with("nomePessoa", nome)).list();
     }
