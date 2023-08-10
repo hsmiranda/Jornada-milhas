@@ -2,7 +2,7 @@ package org.estudos.jornadamilhas.repository;
 
 import java.util.List;
 
-import org.estudos.jornadamilhas.entity.Depoimento;
+import org.estudos.jornadamilhas.domain.Depoimento;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;
