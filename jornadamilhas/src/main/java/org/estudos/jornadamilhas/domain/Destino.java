@@ -28,8 +28,8 @@ public class Destino {
     
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    @Column(name = "blob_foto_destino")
-    private Byte fotoDestino;
+    @Column(name = "blob_foto_destino", nullable = true)
+    private byte[] fotoDestino;
 
     public Long getIdDestino() {
         return this.idDestino;
@@ -55,11 +55,11 @@ public class Destino {
         this.precoDestino = precoDestino;
     }
 
-    public Byte getFotoDestino() {
+    public byte[] getFotoDestino() {
         return this.fotoDestino;
     }
 
-    public void setFotoDestino(Byte fotoDestino) {
+    public void setFotoDestino(byte[] fotoDestino) {
         this.fotoDestino = fotoDestino;
     }    
 

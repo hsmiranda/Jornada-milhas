@@ -14,7 +14,7 @@ import jakarta.ws.rs.core.Response;
 public class DestinosRepository implements PanacheRepository<Destino>{
     
     @Transactional
-    public List<Destino> listarTodos(){
+    public List<Destino> listarTodos() {
         return listAll();
     }
 
