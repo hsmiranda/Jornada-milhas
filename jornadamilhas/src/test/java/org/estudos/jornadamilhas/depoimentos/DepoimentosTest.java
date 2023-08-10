@@ -1,6 +1,6 @@
 package org.estudos.jornadamilhas.depoimentos;
 
-import org.estudos.jornadamilhas.entity.Depoimento;
+import org.estudos.jornadamilhas.domain.Depoimento;
 import org.estudos.jornadamilhas.repository.DepoimentoRepository;
 import org.junit.jupiter.api.Test;
 

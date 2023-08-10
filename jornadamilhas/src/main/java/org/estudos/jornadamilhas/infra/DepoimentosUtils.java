@@ -3,12 +3,13 @@ package org.estudos.jornadamilhas.infra;
 import java.util.List;
 import java.util.Random;
 
-import org.estudos.jornadamilhas.entity.Depoimento;
+import org.estudos.jornadamilhas.domain.Depoimento;
 
 public class DepoimentosUtils {
 
-    public static Depoimento getRandomDepoimento(List<Depoimento> l) {
-        Random rand = new Random();
-        return l.get(rand.nextInt(l.size()));
+    Random rand = new Random() ;
+
+    public Depoimento getRandomDepoimento(List<Depoimento> l) {
+        return l.get(this.rand.nextInt(l.size()));
     }
 }

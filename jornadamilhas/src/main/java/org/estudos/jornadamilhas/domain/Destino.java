@@ -1,4 +1,4 @@
-package org.estudos.jornadamilhas.entity;
+package org.estudos.jornadamilhas.domain;
 
 import java.math.BigDecimal;
 
@@ -29,7 +29,7 @@ public class Destino {
     @Lob
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "blob_foto_destino")
-    private Byte[] fotoDestino;
+    private Byte fotoDestino;
 
     public Long getIdDestino() {
         return this.idDestino;
@@ -55,11 +55,11 @@ public class Destino {
         this.precoDestino = precoDestino;
     }
 
-    public Byte[] getFotoDestino() {
+    public Byte getFotoDestino() {
         return this.fotoDestino;
     }
 
-    public void setFotoDestino(Byte[] fotoDestino) {
+    public void setFotoDestino(Byte fotoDestino) {
         this.fotoDestino = fotoDestino;
     }    
 

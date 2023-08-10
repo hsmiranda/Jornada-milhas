@@ -1,4 +1,4 @@
-package org.estudos.jornadamilhas.entity;
+package org.estudos.jornadamilhas.domain;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
