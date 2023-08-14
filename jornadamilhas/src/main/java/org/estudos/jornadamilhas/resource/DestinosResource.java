@@ -24,12 +24,12 @@ public class DestinosResource {
     DestinoServiceImpl destinoService;
 
     @GET
-    public List<Destino> listAll(){
+    public List<Destino> listAll() {
         return destinoService.listarTodos();
     }
 
     @POST
-    public Response create (Destino destino){
+    public Response create (Destino destino) {
         destinoService.cadastrar(destino);
         return Response.ok(destino).status(Response.Status.CREATED).build();
     }
@@ -43,7 +43,7 @@ public class DestinosResource {
 
     @DELETE
     @Path("{id}")
-    public Response apagar(@PathParam("id") Long id){
+    public Response apagar(@PathParam("id") Long id) {
         destinoService.apagar(id);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
