@@ -3,20 +3,26 @@ package org.estudos.jornadamilhas.services.impl;
 import java.util.List;
 
 import org.estudos.jornadamilhas.domain.Depoimento;
+import org.estudos.jornadamilhas.repository.DepoimentoRepository;
 import org.estudos.jornadamilhas.services.DepoimentoService;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
 public class DepoimentosServiceImpl implements DepoimentoService{
+
+    @Inject
+    DepoimentoRepository depoimentoRepository;
 
     @Override
     public List<Depoimento> listAllDepoimentos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listAllDepoimentos'");
+        return this.depoimentoRepository.listAll();
     }
 
     @Override
     public Depoimento create(Depoimento d) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+        return this.depoimentoRepository.cadastrar(d);
     }
 
     @Override

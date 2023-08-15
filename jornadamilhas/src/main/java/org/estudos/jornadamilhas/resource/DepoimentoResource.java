@@ -5,6 +5,8 @@ import java.util.List;
 import org.estudos.jornadamilhas.bo.DepoimentoBO;
 import org.estudos.jornadamilhas.domain.Depoimento;
 import org.estudos.jornadamilhas.repository.DepoimentoRepository;
+import org.estudos.jornadamilhas.services.DepoimentoService;
+import org.estudos.jornadamilhas.services.impl.DepoimentosServiceImpl;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;
@@ -22,17 +24,17 @@ import jakarta.ws.rs.core.Response;
 public class DepoimentoResource {
 
     @Inject
-    private DepoimentoRepository depoimentoRepository;
+    private DepoimentosServiceImpl depoimentosService;
 
     @GET
     public List<Depoimento> listAll(){
-        return depoimentoRepository.listAll();
+        return this.depoimentosService.listAllDepoimentos();
     }
 
     @POST
     public Response create (Depoimento depoimento){
-        depoimentoRepository.cadastrar(depoimento);
-        return Response.ok(depoimento).status(Response.Status.CREATED).build();
+        Depoimento d = this.depoimentosService.create(depoimento);
+        return Response.ok(d).status(Response.Status.CREATED).build();
     }
 
     @PUT
