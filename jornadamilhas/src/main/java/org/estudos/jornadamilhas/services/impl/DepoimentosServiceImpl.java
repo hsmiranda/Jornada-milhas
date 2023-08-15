@@ -26,9 +26,8 @@ public class DepoimentosServiceImpl implements DepoimentoService{
     }
 
     @Override
-    public Depoimento atualizar(Depoimento d) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+    public Depoimento atualizar(Long id, Depoimento d) {
+        return this.depoimentoRepository.atualizar(id, d);
     }
 
     @Override

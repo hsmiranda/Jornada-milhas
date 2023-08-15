@@ -40,7 +40,7 @@ public class DepoimentoResource {
     @PUT
     @Path("{id}")
     public Response atualizar(@PathParam("id") Long id, Depoimento d) {
-        Depoimento depoimentoAtualizado = depoimentoRepository.atualizar(id, d);
+        Depoimento depoimentoAtualizado = this.depoimentosService.atualizar(id, d);
         return Response.ok(depoimentoAtualizado).build();
     }
 
