@@ -32,7 +32,7 @@ public class Destino {
     private byte[] fotoDestino;
 
     public Long getIdDestino() {
-        return this.idDestino;
+        return idDestino;
     }
 
     public void setIdDestino(Long idDestino) {
@@ -40,7 +40,7 @@ public class Destino {
     }
 
     public String getNomeDestino() {
-        return this.nomeDestino;
+        return nomeDestino;
     }
 
     public void setNomeDestino(String nomeDestino) {
@@ -48,7 +48,7 @@ public class Destino {
     }
 
     public BigDecimal getPrecoDestino() {
-        return this.precoDestino;
+        return precoDestino;
     }
 
     public void setPrecoDestino(BigDecimal precoDestino) {
@@ -56,20 +56,10 @@ public class Destino {
     }
 
     public byte[] getFotoDestino() {
-        return this.fotoDestino;
+        return fotoDestino;
     }
 
     public void setFotoDestino(byte[] fotoDestino) {
         this.fotoDestino = fotoDestino;
-    }    
-
-    @Override
-    public String toString() {
-        return "{" +
-            " idDestino='" + getIdDestino() + "'" +
-            ", nomeDestino='" + getNomeDestino() + "'" +
-            ", precoDestino='" + getPrecoDestino() + "'" +
-            ", fotoDestino='" + getFotoDestino() + "'" +
-            "}";
     }
 }
