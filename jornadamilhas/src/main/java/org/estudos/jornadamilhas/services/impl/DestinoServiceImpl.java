@@ -10,7 +10,8 @@ import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.NotFoundException;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
 
 @ApplicationScoped
 public class DestinoServiceImpl implements DestinoService {
@@ -52,8 +53,11 @@ public class DestinoServiceImpl implements DestinoService {
 
         if (d == null){
             Log.info("Destino nao encontrado");
-            throw new NotFoundException("Destino nAo localizado");
-        }
+                throw new WebApplicationException("Destino nao encontrado", Response.Status.NOT_FOUND);        
+            
+            }
+
+
 
         return d;
     }

@@ -2,9 +2,8 @@ package org.estudos.jornadamilhas.resource;
 
 import java.util.List;
 
-import org.estudos.jornadamilhas.bo.DepoimentoBO;
 import org.estudos.jornadamilhas.domain.Depoimento;
-import org.estudos.jornadamilhas.repository.DepoimentoRepository;
+import org.estudos.jornadamilhas.services.impl.DepoimentosServiceImpl;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;
@@ -22,50 +21,49 @@ import jakarta.ws.rs.core.Response;
 public class DepoimentoResource {
 
     @Inject
-    private DepoimentoRepository depoimentoRepository;
+    private DepoimentosServiceImpl depoimentosService;
 
     @GET
     public List<Depoimento> listAll(){
-        return depoimentoRepository.listAll();
+        return this.depoimentosService.listAllDepoimentos();
     }
 
     @POST
     public Response create (Depoimento depoimento){
-        depoimentoRepository.cadastrar(depoimento);
-        return Response.ok(depoimento).status(Response.Status.CREATED).build();
+        Depoimento d = this.depoimentosService.create(depoimento);
+        return Response.ok(d).status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("{id}")
     public Response atualizar(@PathParam("id") Long id, Depoimento d) {
-        Depoimento depoimentoAtualizado = depoimentoRepository.atualizar(id, d);
+        Depoimento depoimentoAtualizado = this.depoimentosService.atualizar(id, d);
         return Response.ok(depoimentoAtualizado).build();
     }
 
     @DELETE
     @Path("{id}")
     public Response apagar(@PathParam("id") Long id){
-        depoimentoRepository.apagar(id);
+        this.depoimentosService.apagar(id);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
 
     @GET
     @Path("total")
     public Long count(){
-        return depoimentoRepository.count();
+        return this.depoimentosService.getQtdDepoimentos();
     }
 
     @GET
     @Path("{id}")
     public Depoimento pesquisar(@PathParam("id") Long id) {
-        return depoimentoRepository.findById(id);
+        return this.depoimentosService.procurar(id);
     }
 
     @GET
     @Path("depoimentos-home")
     public List<Depoimento> depoimentoHome(){
-        DepoimentoBO depoimentoBO = new DepoimentoBO();
-        return depoimentoBO.getDepoimentosHome();
+        return this.depoimentosService.depoimentoHome();
     }
 
 
