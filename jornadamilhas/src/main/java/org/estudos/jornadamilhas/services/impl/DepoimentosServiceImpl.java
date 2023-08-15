@@ -31,10 +31,9 @@ public class DepoimentosServiceImpl implements DepoimentoService{
     }
 
     @Override
-    public Depoimento apagar(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'apagar'");
-    }
+    public void apagar(Long id) {
+       this.depoimentoRepository.apagar(id);
+    }   
 
     @Override
     public Depoimento procurar(long id) {

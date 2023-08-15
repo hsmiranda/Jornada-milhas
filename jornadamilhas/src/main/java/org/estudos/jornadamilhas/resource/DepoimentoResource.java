@@ -47,7 +47,7 @@ public class DepoimentoResource {
     @DELETE
     @Path("{id}")
     public Response apagar(@PathParam("id") Long id){
-        depoimentoRepository.apagar(id);
+        this.depoimentosService.apagar(id);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
 
