@@ -79,6 +79,9 @@
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
         <version>${quarkus.platform.version}</version>
+        <configuration>
+          <debug>6006</debug>
+        </configuration>
         <extensions>true</extensions>
         <executions>
           <execution>

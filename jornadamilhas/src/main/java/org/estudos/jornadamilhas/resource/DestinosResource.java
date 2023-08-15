@@ -25,20 +25,20 @@ public class DestinosResource {
 
     @GET
     public List<Destino> listAll() {
-        return destinoService.listarTodos();
+        return this.destinoService.listarTodos();
     }
 
     @POST
     public Response create (Destino destino) {
-        destinoService.cadastrar(destino);
+        this.destinoService.cadastrar(destino);
         return Response.ok(destino).status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("{id}")
     public Response getById(@PathParam("id") Long id, Destino destino) {
-        Destino destinoAtualizado = destinoService.atualizar(id, destino);
-        return  Response.ok(destinoAtualizado).build();
+        Destino destinoAtualizado = this.destinoService.atualizar(id, destino);
+        return Response.ok(destinoAtualizado).build();
     }
 
     @DELETE

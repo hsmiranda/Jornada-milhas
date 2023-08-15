@@ -20,14 +20,13 @@ public class DestinoServiceImpl implements DestinoService {
 
     @Override
     public List<Destino> listarTodos() {
-        return this.destinosRepository.listAll();
+        return this.destinosRepository.listAllDestinos();
     }
 
     @Override
     @Transactional
     public Destino cadastrar(Destino d) {
-        this.destinosRepository.cadastrar(d);
-        return destinosRepository.cadastrar(d);
+        return this.destinosRepository.cadastrar(d);
     }
 
     @Override

@@ -14,7 +14,7 @@ import jakarta.ws.rs.core.Response;
 public class DestinosRepository implements PanacheRepository<Destino>{
     
     @Transactional
-    public List<Destino> listarTodos() {
+    public List<Destino> listAllDestinos() {
         return listAll();
     }
 
@@ -55,5 +55,4 @@ public class DestinosRepository implements PanacheRepository<Destino>{
     public Destino pesquisarDesinoPorNome(String nomeParm){
         return find("nomeDestino", nomeParm).firstResult();
     }
-
 }
