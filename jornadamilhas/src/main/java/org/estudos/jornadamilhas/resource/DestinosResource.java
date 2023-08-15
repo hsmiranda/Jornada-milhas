@@ -50,7 +50,7 @@ public class DestinosResource {
 
     @GET
     @Path("{id}")
-    public Destino pesquisarDestino(@PathParam("id") Long id) {
+    public Destino pesquisarDestino(@PathParam("id") Long id){
         return this.destinoService.findById(id);
     }
 }

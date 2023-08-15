@@ -67,4 +67,6 @@ public class DepoimentoResource {
         DepoimentoBO depoimentoBO = new DepoimentoBO();
         return depoimentoBO.getDepoimentosHome();
     }
+
+
 }

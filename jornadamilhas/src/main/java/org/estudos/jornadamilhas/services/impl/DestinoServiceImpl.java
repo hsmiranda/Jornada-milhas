@@ -6,9 +6,11 @@ import org.estudos.jornadamilhas.domain.Destino;
 import org.estudos.jornadamilhas.repository.DestinosRepository;
 import org.estudos.jornadamilhas.services.DestinoService;
 
+import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.NotFoundException;
 
 @ApplicationScoped
 public class DestinoServiceImpl implements DestinoService {
@@ -46,8 +48,15 @@ public class DestinoServiceImpl implements DestinoService {
 
     @Override
     @Transactional
-    public Destino findById(Long id) {
-        return this.destinosRepository.findById(id);
+    public Destino findById(Long id){
+        Destino d = this.destinosRepository.findById(id);
+
+        if (d == null){
+            Log.info("Destino nao encontrado");
+            throw new NotFoundException("Destino nAo localizado");
+        }
+
+        return d;
     }
     
 }
