@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.estudos.jornadamilhas.domain.Depoimento;
 
-public class DepoimentosUtils {
+public class RandomUtils {
 
     Random rand = new Random() ;
 
