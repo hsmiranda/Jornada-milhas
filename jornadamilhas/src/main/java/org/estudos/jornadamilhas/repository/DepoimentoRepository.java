@@ -8,7 +8,6 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
 
@@ -61,15 +60,15 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
     }
 
     @Transactional
-    public Depoimento pesquisarPorId(Long idLong){
+    public Depoimento pesquisarPorId(Long id) {
 
-        Depoimento depoimentoEntity = findById(idLong);
+        Depoimento depoimentoEntity = findById(id);
 
         /**
          * Verifica se o depoimento existe.
          */
         if(depoimentoEntity == null){
-            throw new NotFoundException();
+            throw new WebApplicationException("Depoimento com o"+ id+ "nao encontrado", Response.Status.NOT_FOUND);
         }
 
         return depoimentoEntity;

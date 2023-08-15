@@ -2,6 +2,7 @@ package org.estudos.jornadamilhas.services.impl;
 
 import java.util.List;
 
+import org.estudos.jornadamilhas.bo.DepoimentoBO;
 import org.estudos.jornadamilhas.domain.Depoimento;
 import org.estudos.jornadamilhas.repository.DepoimentoRepository;
 import org.estudos.jornadamilhas.services.DepoimentoService;
@@ -10,7 +11,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
-public class DepoimentosServiceImpl implements DepoimentoService{
+public class DepoimentosServiceImpl implements DepoimentoService {
 
     @Inject
     DepoimentoRepository depoimentoRepository;
@@ -37,20 +38,18 @@ public class DepoimentosServiceImpl implements DepoimentoService{
 
     @Override
     public Depoimento procurar(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'procurar'");
+        return this.depoimentoRepository.pesquisarPorId(id);
     }
 
     @Override
     public Long getQtdDepoimentos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getQtdDepoimentos'");
+       return (long) this.depoimentoRepository.listAll().size();
     }
 
     @Override
     public List<Depoimento> depoimentoHome() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'depoimentoHome'");
+       DepoimentoBO depoimentoBO = new DepoimentoBO();
+       return depoimentoBO.getDepoimentosHome();
     }
     
 }

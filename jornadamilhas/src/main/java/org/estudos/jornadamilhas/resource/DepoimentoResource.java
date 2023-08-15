@@ -2,10 +2,7 @@ package org.estudos.jornadamilhas.resource;
 
 import java.util.List;
 
-import org.estudos.jornadamilhas.bo.DepoimentoBO;
 import org.estudos.jornadamilhas.domain.Depoimento;
-import org.estudos.jornadamilhas.repository.DepoimentoRepository;
-import org.estudos.jornadamilhas.services.DepoimentoService;
 import org.estudos.jornadamilhas.services.impl.DepoimentosServiceImpl;
 
 import jakarta.inject.Inject;
@@ -54,20 +51,19 @@ public class DepoimentoResource {
     @GET
     @Path("total")
     public Long count(){
-        return depoimentoRepository.count();
+        return this.depoimentosService.getQtdDepoimentos();
     }
 
     @GET
     @Path("{id}")
     public Depoimento pesquisar(@PathParam("id") Long id) {
-        return depoimentoRepository.findById(id);
+        return this.depoimentosService.procurar(id);
     }
 
     @GET
     @Path("depoimentos-home")
     public List<Depoimento> depoimentoHome(){
-        DepoimentoBO depoimentoBO = new DepoimentoBO();
-        return depoimentoBO.getDepoimentosHome();
+        return this.depoimentosService.depoimentoHome();
     }
 
 
