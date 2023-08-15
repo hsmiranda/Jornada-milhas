@@ -1,4 +1,4 @@
-package org.estudos.jornadamilhas.filters;
+package org.estudos.jornadamilhas.infra.filters;
 
 import java.io.IOException;
 
