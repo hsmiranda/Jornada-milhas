@@ -10,4 +10,5 @@ public interface DestinoService {
     public Destino cadastrar(Destino destino);
     public Destino atualizar(Long idDestino, Destino destino);
     public Boolean apagar(Long idDestino);
+    public Destino findById(Long id);
 }

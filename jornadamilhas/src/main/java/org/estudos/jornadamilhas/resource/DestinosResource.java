@@ -24,27 +24,33 @@ public class DestinosResource {
     DestinoServiceImpl destinoService;
 
     @GET
-    public List<Destino> listAll(){
+    public List<Destino> listAll() {
         return destinoService.listarTodos();
     }
 
     @POST
-    public Response create (Destino destino){
+    public Response create (Destino destino) {
         destinoService.cadastrar(destino);
         return Response.ok(destino).status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("{id}")
-    public Response atualizar(@PathParam("id") Long id, Destino destino) {
+    public Response getById(@PathParam("id") Long id, Destino destino) {
         Destino destinoAtualizado = destinoService.atualizar(id, destino);
         return  Response.ok(destinoAtualizado).build();
     }
 
     @DELETE
     @Path("{id}")
-    public Response apagar(@PathParam("id") Long id){
-        destinoService.apagar(id);
+    public Response apagar(@PathParam("id") Long id) {
+        this.destinoService.apagar(id);
         return Response.status(Response.Status.NO_CONTENT).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Destino pesquisarDestino(@PathParam("id") Long id){
+        return this.destinoService.findById(id);
     }
 }
