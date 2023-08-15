@@ -36,7 +36,7 @@ public class DestinosResource {
 
     @PUT
     @Path("{id}")
-    public Response atualizar(@PathParam("id") Long id, Destino destino) {
+    public Response getById(@PathParam("id") Long id, Destino destino) {
         Destino destinoAtualizado = destinoService.atualizar(id, destino);
         return  Response.ok(destinoAtualizado).build();
     }
@@ -44,7 +44,13 @@ public class DestinosResource {
     @DELETE
     @Path("{id}")
     public Response apagar(@PathParam("id") Long id) {
-        destinoService.apagar(id);
+        this.destinoService.apagar(id);
         return Response.status(Response.Status.NO_CONTENT).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Destino pesquisarDestino(@PathParam("id") Long id) {
+        return this.destinoService.findById(id);
     }
 }

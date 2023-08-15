@@ -18,19 +18,20 @@ public class DestinoServiceImpl implements DestinoService {
 
     @Override
     public List<Destino> listarTodos() {
-        return destinosRepository.listAll();
+        return this.destinosRepository.listAll();
     }
 
     @Override
     @Transactional
     public Destino cadastrar(Destino d) {
-        destinosRepository.cadastrar(d);
+        this.destinosRepository.cadastrar(d);
         return destinosRepository.cadastrar(d);
     }
 
     @Override
+    @Transactional
     public Destino atualizar(Long idDestino, Destino destino) {
-        Destino d = destinosRepository.findById(idDestino);
+        Destino d = this.destinosRepository.findById(idDestino);
         d.setFotoDestino(destino.getFotoDestino());
         d.setNomeDestino(destino.getNomeDestino());
         d.setPrecoDestino(destino.getPrecoDestino());
@@ -38,8 +39,15 @@ public class DestinoServiceImpl implements DestinoService {
     }
 
     @Override
+    @Transactional
     public Boolean apagar(Long idDestino) {
-        return destinosRepository.deleteById(idDestino);
+        return this.destinosRepository.deleteById(idDestino);
+    }
+
+    @Override
+    @Transactional
+    public Destino findById(Long id) {
+        return this.destinosRepository.findById(id);
     }
     
 }
