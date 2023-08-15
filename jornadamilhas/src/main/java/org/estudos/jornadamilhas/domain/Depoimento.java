@@ -9,9 +9,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity(name = "tbl_depoimento")
 @Table(name = "tbl_depoimento")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class Depoimento {
     
     @Id
@@ -25,50 +37,8 @@ public class Depoimento {
     private String textoDepoimento;
 
     @Lob
-    @Basic(fetch = FetchType.LAZY)
+    @Basic(fetch = FetchType.EAGER)
     @Column(nullable = true, name = "blob_foto")
     private byte[] foto;
-   
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNomePessoa() {
-        return this.nomePessoa;
-    }
-
-    public void setNomePessoa(String nomePessoa) {
-        this.nomePessoa = nomePessoa;
-    }
-
-    public String getTextoDepoimento() {
-        return this.textoDepoimento;
-    }
-
-    public void setTextoDepoimento(String textoDepoimento) {
-        this.textoDepoimento = textoDepoimento;
-    }
-
-    public byte[] getFoto() {
-        return this.foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nomePessoa='" + getNomePessoa() + "'" +
-            ", textoDepoimento='" + getTextoDepoimento() + "'" +
-            ", foto='" + getFoto() + "'" +
-            "}";
-    }
 }
