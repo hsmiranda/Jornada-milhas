@@ -18,6 +18,7 @@ public class DestinoServiceImpl implements DestinoService {
     @Inject
     DestinosRepository destinyRepository;
 
+
     @Override
     public List<Destino> listAllDestines() {
         return this.destinyRepository.listAllDestines();

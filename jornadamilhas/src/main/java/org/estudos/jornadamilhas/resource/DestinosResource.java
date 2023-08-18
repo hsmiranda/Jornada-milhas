@@ -1,6 +1,7 @@
 package org.estudos.jornadamilhas.resource;
 
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -22,14 +23,14 @@ public class DestinosResource {
     }
 
     @POST
-    public Response create (Destino destino) {
+    public Response create(@Valid Destino destino) {
         this.destinyService.create(destino);
         return Response.ok(destino).status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("{id}")
-    public Response getById(@PathParam("id") Long id, Destino destino) {
+    public Response getById(@PathParam("id") Long id, @Valid Destino destino) {
         Destino updateDestiny = this.destinyService.update(id, destino);
         return Response.ok(updateDestiny).build();
     }
