@@ -43,5 +43,4 @@ public class Destino {
 
     @Column(name = "txt_descricao_destino", nullable = true, length = 160)
     private String textoDescritivoDestino;
-
 }

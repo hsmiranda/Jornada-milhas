@@ -44,7 +44,7 @@ public class DestinoServiceImpl implements DestinoService {
 
     @Override
     @Transactional
-    public Destino findById(Long id){
+    public Destino findById(Long id) {
         Destino d = this.destinyRepository.findById(id);
 
         if (d == null){

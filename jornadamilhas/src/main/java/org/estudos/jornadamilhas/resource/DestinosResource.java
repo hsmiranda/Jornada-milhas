@@ -48,7 +48,7 @@ public class DestinosResource {
 
     @GET
     @Path("{id}")
-    public Destino searchByDestinyId(@PathParam("id") Long id){
+    public Destino searchByDestinyId(@PathParam("id") Long id) {
         return this.destinyService.findById(id);
     }
 }
