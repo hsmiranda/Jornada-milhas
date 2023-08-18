@@ -72,6 +72,12 @@
       <version>1.18.28</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-test-h2</artifactId>
+      <version>3.2.3.Final</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
