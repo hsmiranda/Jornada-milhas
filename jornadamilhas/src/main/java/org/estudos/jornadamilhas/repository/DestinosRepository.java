@@ -29,7 +29,7 @@ public class DestinosRepository implements PanacheRepository<Destino>{
         Destino de = findById(id);
         
         if (de == null) {
-            throw new WebApplicationException("Nao foi possivel atualizar o destino, ocorreu um erro entre em contato com o suporte.");
+            throw new WebApplicationException("Destiny not found,please send error for support service.");
         }
 
         de.setFoto1Destino(d.getFoto1Destino());

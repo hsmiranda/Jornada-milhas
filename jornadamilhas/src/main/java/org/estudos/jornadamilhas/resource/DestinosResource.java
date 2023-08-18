@@ -37,8 +37,12 @@ public class DestinosResource {
     @DELETE
     @Path("{id}")
     public Response remove(@PathParam("id") Long id) {
-        this.destinyService.removeById(id);
-        return Response.status(Response.Status.NO_CONTENT).build();
+        if (this.destinyService.removeById(id)) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        }
+        else {
+            return Response.status(Response.Status.NOT_MODIFIED).build();
+        }
     }
 
     @GET
