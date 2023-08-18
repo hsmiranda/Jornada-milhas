@@ -1,58 +1,56 @@
 package org.estudos.jornadamilhas.repository;
 
-import java.util.List;
-
-import org.estudos.jornadamilhas.domain.Destino;
-
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
+import org.estudos.jornadamilhas.domain.Destino;
+
+import java.util.List;
 
 @ApplicationScoped
 public class DestinosRepository implements PanacheRepository<Destino>{
     
     @Transactional
-    public List<Destino> listAllDestinos() {
+    public List<Destino> listAllDestines() {
         return listAll();
     }
 
     @Transactional
-    public Destino cadastrar(Destino d) {
+    public Destino create(Destino d) {
         persist(d);
         return d;
     }
 
     @Transactional
-    public Destino atualizar(Long id, Destino d){
+    public Destino update(Long id, Destino d){
         
         Destino de = findById(id);
         
         if (de == null) {
-            throw new WebApplicationException("Destino não encontrado");
+            throw new WebApplicationException("Nao foi possivel atualizar o destino, ocorreu um erro entre em contato com o suporte.");
         }
 
-        de.setFotoDestino(d.getFotoDestino());
+        de.setFoto1Destino(d.getFoto1Destino());
+        de.setFoto1Destino(d.getFoto2Destino());
+        de.setMetaDestino(d.getMetaDestino());
         de.setNomeDestino(d.getNomeDestino());
         de.setPrecoDestino(d.getPrecoDestino());
+
+        persist(de);
 
         return de;
     }
 
     @Transactional
-    public void apagar(Long idLong){
-        Destino destinoTemp = findById(idLong);
+    public Boolean remove(Long idLong){
+        Destino destinyTemp = findById(idLong);
 
-        if(destinoTemp == null) {
-            throw new WebApplicationException("Destino nao encontrado com o id: "+idLong, Response.Status.NOT_FOUND);
+        if(destinyTemp == null) {
+            throw new WebApplicationException("Destiny with: "+idLong+" not found.", Response.Status.NOT_FOUND);
         }
         
-        delete(destinoTemp);
-    }
-
-    @Transactional
-    public Destino pesquisarDesinoPorNome(String nomeParm){
-        return find("nomeDestino", nomeParm).firstResult();
+        return deleteById(destinyTemp.getIdDestino());
     }
 }
