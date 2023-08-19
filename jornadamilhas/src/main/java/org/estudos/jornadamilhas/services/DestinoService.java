@@ -1,14 +1,14 @@
 package org.estudos.jornadamilhas.services;
 
-import java.util.List;
-
 import org.estudos.jornadamilhas.domain.Destino;
+
+import java.util.List;
 
 public interface DestinoService {
 
-    public List<Destino> listarTodos(); 
-    public Destino cadastrar(Destino destino);
-    public Destino atualizar(Long idDestino, Destino destino);
-    public Boolean apagar(Long idDestino);
-    public Destino findById(Long id);
+    List<Destino> listAllDestines();
+    Destino create(Destino destino);
+    Destino update(Long idDestino, Destino destino);
+    Boolean removeById(Long idDestino);
+    Destino findById(Long id);
 }

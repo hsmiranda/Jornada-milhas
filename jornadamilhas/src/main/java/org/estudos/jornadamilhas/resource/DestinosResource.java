@@ -1,56 +1,54 @@
 package org.estudos.jornadamilhas.resource;
 
-import java.util.List;
-
-import org.estudos.jornadamilhas.domain.Destino;
-import org.estudos.jornadamilhas.services.impl.DestinoServiceImpl;
-
 import jakarta.inject.Inject;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.validation.Valid;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.estudos.jornadamilhas.domain.Destino;
+import org.estudos.jornadamilhas.services.DestinoService;
+
+import java.util.List;
 
 @Path("/destino")
 @Produces(MediaType.APPLICATION_JSON)
 public class DestinosResource {
     
     @Inject
-    DestinoServiceImpl destinoService;
+    DestinoService destinyService;
 
     @GET
     public List<Destino> listAll() {
-        return this.destinoService.listarTodos();
+        return this.destinyService.listAllDestines();
     }
 
     @POST
-    public Response create (Destino destino) {
-        this.destinoService.cadastrar(destino);
+    public Response create(@Valid Destino destino) {
+        this.destinyService.create(destino);
         return Response.ok(destino).status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("{id}")
-    public Response getById(@PathParam("id") Long id, Destino destino) {
-        Destino destinoAtualizado = this.destinoService.atualizar(id, destino);
-        return Response.ok(destinoAtualizado).build();
+    public Response getById(@PathParam("id") Long id, @Valid Destino destino) {
+        Destino updateDestiny = this.destinyService.update(id, destino);
+        return Response.ok(updateDestiny).build();
     }
 
     @DELETE
     @Path("{id}")
-    public Response apagar(@PathParam("id") Long id) {
-        this.destinoService.apagar(id);
-        return Response.status(Response.Status.NO_CONTENT).build();
+    public Response remove(@PathParam("id") Long id) {
+        if (this.destinyService.removeById(id)) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        }
+        else {
+            return Response.status(Response.Status.NOT_MODIFIED).build();
+        }
     }
 
     @GET
     @Path("{id}")
-    public Destino pesquisarDestino(@PathParam("id") Long id){
-        return this.destinoService.findById(id);
+    public Destino searchByDestinyId(@PathParam("id") Long id) {
+        return this.destinyService.findById(id);
     }
 }
