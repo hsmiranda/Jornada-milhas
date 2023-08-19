@@ -5,7 +5,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.core.Response;
 import org.estudos.jornadamilhas.domain.Destino;
 import org.estudos.jornadamilhas.repository.DestinosRepository;
 import org.estudos.jornadamilhas.services.DestinoService;
@@ -17,7 +16,6 @@ public class DestinoServiceImpl implements DestinoService {
 
     @Inject
     DestinosRepository destinyRepository;
-
 
     @Override
     public List<Destino> listAllDestines() {
@@ -44,14 +42,14 @@ public class DestinoServiceImpl implements DestinoService {
 
     @Override
     @Transactional
-    public Destino findById(Long id) {
+    public Destino findById(Long id) throws WebApplicationException {
+
         Destino d = this.destinyRepository.findById(id);
 
         if (d == null){
             Log.info("Destiny not found or null return");
-                throw new WebApplicationException("Destiny not found,please send error for support service.", Response.Status.NOT_FOUND);
-            
-            }
+            throw new WebApplicationException();
+        }
 
         return d;
     }

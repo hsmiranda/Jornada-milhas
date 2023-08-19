@@ -99,9 +99,9 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <debug>6006</debug>
-        </configuration>
+        <!--        <configuration>-->
+        <!--          <debug>6006</debug>-->
+        <!--        </configuration>-->
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
