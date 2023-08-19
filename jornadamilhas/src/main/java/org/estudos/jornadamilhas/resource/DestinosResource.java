@@ -30,7 +30,7 @@ public class DestinosResource {
 
     @PUT
     @Path("{id}")
-    public Response getById(@PathParam("id") Long id, @Valid Destino destino) {
+    public Response update(@PathParam("id") Long id, @Valid Destino destino) {
         Destino updateDestiny = this.destinyService.update(id, destino);
         return Response.ok(updateDestiny).build();
     }
@@ -49,6 +49,15 @@ public class DestinosResource {
     @GET
     @Path("{id}")
     public Destino searchByDestinyId(@PathParam("id") Long id) {
-        return this.destinyService.findById(id);
+
+        Destino d = null;
+
+        try {
+            d = this.destinyService.findById(id);
+        } catch (WebApplicationException w) {
+            Response.status(Response.Status.NOT_FOUND).entity(w.getMessage());
+        }
+
+        return d;
     }
 }
