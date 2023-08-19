@@ -1,15 +1,14 @@
 package org.estudos.jornadamilhas.repository;
 
-import java.util.List;
-
-import org.estudos.jornadamilhas.domain.Depoimento;
-
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
+import org.estudos.jornadamilhas.domain.Depoimento;
+
+import java.util.List;
 
 
 @ApplicationScoped
@@ -68,7 +67,7 @@ public class DepoimentoRepository implements PanacheRepository<Depoimento>{
          * Verifica se o depoimento existe.
          */
         if(depoimentoEntity == null){
-            throw new WebApplicationException("Depoimento com o"+ id+ "nao encontrado", Response.Status.NOT_FOUND);
+            throw new WebApplicationException("Depoimento com o " + id + "nao encontrado", Response.Status.NOT_FOUND);
         }
 
         return depoimentoEntity;
