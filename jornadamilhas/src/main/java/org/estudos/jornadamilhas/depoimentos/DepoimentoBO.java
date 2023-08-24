@@ -1,11 +1,9 @@
-package org.estudos.jornadamilhas.bo;
+package org.estudos.jornadamilhas.depoimentos;
+
+import org.estudos.jornadamilhas.infra.RandomUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.estudos.jornadamilhas.domain.Depoimento;
-import org.estudos.jornadamilhas.infra.RandomUtils;
-import org.estudos.jornadamilhas.repository.DepoimentoRepository;
 
 
 public class DepoimentoBO {

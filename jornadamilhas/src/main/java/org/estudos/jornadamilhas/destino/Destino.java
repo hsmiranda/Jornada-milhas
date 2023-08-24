@@ -1,20 +1,15 @@
-package org.estudos.jornadamilhas.domain;
+package org.estudos.jornadamilhas.destino;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Data;
 
 import java.io.File;
 import java.math.BigDecimal;
 
 @Entity(name = "tbl_destinos")
 @Table(name = "tbl_destinos")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@EqualsAndHashCode
+@Data
 public class Destino {
     
     @Id
@@ -41,6 +36,6 @@ public class Destino {
     @Size(max = 160, message = "Meta has between 0 and 160 characters")
     private String metaDestino;
 
-    @Column(name = "txt_descricao_destino", nullable = true)
+    @Column(name = "txt_descricao_destino", nullable = true, length = 1024)
     private String textoDescritivoDestino;
 }

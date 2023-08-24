@@ -1,27 +1,19 @@
-package org.estudos.jornadamilhas.resource;
-
-import java.util.List;
-
-import org.estudos.jornadamilhas.domain.Depoimento;
-import org.estudos.jornadamilhas.services.impl.DepoimentosServiceImpl;
+package org.estudos.jornadamilhas.depoimentos;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
+
 @Path("/depoimento")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class DepoimentoResource {
 
     @Inject
-    private DepoimentosServiceImpl depoimentosService;
+    DepoimentosServiceImpl depoimentosService;
 
     @GET
     public List<Depoimento> listAll(){

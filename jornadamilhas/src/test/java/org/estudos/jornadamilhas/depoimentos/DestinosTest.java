@@ -13,5 +13,4 @@ public class DestinosTest {
     public void testDestinosGetEndpoint() {
         given().when().get("/destino").then().statusCode(200);
     }
-
 }

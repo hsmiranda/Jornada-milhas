@@ -2,12 +2,9 @@ package org.estudos.jornadamilhas.depoimentos;
 
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.h2.H2DatabaseTestResource;
-import org.estudos.jornadamilhas.domain.Depoimento;
-import org.estudos.jornadamilhas.repository.DepoimentoRepository;
 import org.junit.jupiter.api.Test;
 
-import io.quarkus.test.junit.QuarkusTest;
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 
 @QuarkusTestResource(H2DatabaseTestResource.class)
