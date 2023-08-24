@@ -1,14 +1,9 @@
-package org.estudos.jornadamilhas.services.impl;
-
-import java.util.List;
-
-import org.estudos.jornadamilhas.bo.DepoimentoBO;
-import org.estudos.jornadamilhas.domain.Depoimento;
-import org.estudos.jornadamilhas.repository.DepoimentoRepository;
-import org.estudos.jornadamilhas.services.DepoimentoService;
+package org.estudos.jornadamilhas.depoimentos;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+
+import java.util.List;
 
 @ApplicationScoped
 public class DepoimentosServiceImpl implements DepoimentoService {

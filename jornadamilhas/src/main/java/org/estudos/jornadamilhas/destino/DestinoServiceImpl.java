@@ -1,13 +1,10 @@
-package org.estudos.jornadamilhas.services.impl;
+package org.estudos.jornadamilhas.destino;
 
 import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
-import org.estudos.jornadamilhas.domain.Destino;
-import org.estudos.jornadamilhas.repository.DestinosRepository;
-import org.estudos.jornadamilhas.services.DestinoService;
 
 import java.util.List;
 
@@ -17,6 +14,10 @@ public class DestinoServiceImpl implements DestinoService {
     @Inject
     DestinosRepository destinyRepository;
 
+    @Inject
+    DestinosBO destinosBO;
+
+
     @Override
     public List<Destino> listAllDestines() {
         return this.destinyRepository.listAllDestines();
@@ -25,6 +26,7 @@ public class DestinoServiceImpl implements DestinoService {
     @Override
     @Transactional
     public Destino create(Destino d) {
+        d = this.destinosBO.descritivoIsNull(d);
         return this.destinyRepository.create(d);
     }
 

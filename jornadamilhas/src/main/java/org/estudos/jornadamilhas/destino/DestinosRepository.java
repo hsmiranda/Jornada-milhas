@@ -1,11 +1,10 @@
-package org.estudos.jornadamilhas.repository;
+package org.estudos.jornadamilhas.destino;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
-import org.estudos.jornadamilhas.domain.Destino;
 
 import java.util.List;
 

@@ -1,17 +1,16 @@
-package org.estudos.jornadamilhas.resource;
+package org.estudos.jornadamilhas.destino;
 
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.estudos.jornadamilhas.domain.Destino;
-import org.estudos.jornadamilhas.services.DestinoService;
 
 import java.util.List;
 
 @Path("/destino")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class DestinosResource {
     
     @Inject

@@ -1,6 +1,4 @@
-package org.estudos.jornadamilhas.services;
-
-import org.estudos.jornadamilhas.domain.Destino;
+package org.estudos.jornadamilhas.destino;
 
 import java.util.List;
 
