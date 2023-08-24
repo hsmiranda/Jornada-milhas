@@ -1,6 +1,5 @@
 package org.estudos.jornadamilhas.depoimentos;
 
-import io.quarkus.logging.Log;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.h2.H2DatabaseTestResource;
 import org.estudos.jornadamilhas.ia.OpenAIService;
@@ -13,7 +12,6 @@ public class OpenAITest {
     public void connectOpenAITest() {
         OpenAIService openAIService = new OpenAIService();
         String retorno = openAIService.generateText("ChatGPT qual a sua versão ?");
-        Log.info(retorno); //TODO Remover
         assert retorno != null;
     }
 }

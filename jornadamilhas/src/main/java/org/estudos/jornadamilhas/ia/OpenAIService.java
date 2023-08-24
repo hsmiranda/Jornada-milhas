@@ -1,5 +1,7 @@
 package org.estudos.jornadamilhas.ia;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.logging.Log;
 import okhttp3.*;
@@ -15,7 +17,10 @@ public class OpenAIService {
 
         String apiKey = System.getenv("OPENAI_SECRET");
 
-        Log.info(apiKey); //TODO Remover
+        if (apiKey == null || apiKey.isBlank() || apiKey.isEmpty()) {
+            Log.error("API Secret not loading.");
+            throw new NullPointerException("API Secret not loading.");
+        }
 
         OkHttpClient client = new OkHttpClient();
 
@@ -54,9 +59,33 @@ public class OpenAIService {
 
     }
 
+    private String splitMessageFromJson(String originalMessage) {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String responseFromChatGPT = null;
+
+        try {
+            JsonNode rootNode = objectMapper.readTree(originalMessage);
+            JsonNode choicesNode = rootNode.path("choices");
+
+            for (JsonNode choice : choicesNode) {
+                responseFromChatGPT = choice.path("message").path("content").asText();
+            }
+        } catch (JsonProcessingException e) {
+            Log.error("Not possible to get response from chatGPT.");
+            throw new RuntimeException(e);
+        }
+
+        return responseFromChatGPT;
+    }
+
     public String generateText(String promptBase) {
+
         OpenAIMessage[] openAIMessage = new OpenAIMessage[]{new OpenAIMessage("user", promptBase)};
         OpenAI openAI = new OpenAI("gpt-3.5-turbo", new BigDecimal("0.7"), openAIMessage);
-        return sendAndGetResponseFromOpenAI(openAI);
+
+        String promptResponse = sendAndGetResponseFromOpenAI(openAI);
+
+        return splitMessageFromJson(promptResponse);
     }
 }
